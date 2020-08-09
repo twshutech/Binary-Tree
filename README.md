@@ -24,24 +24,20 @@ Note that it may also be run against hidden test cases not shown here.
 
 -- Java cases -- 
 
-       Input:   
-       Solution.solution(5, {19, 14, 28})   
+       Input:   Solution.solution(5, {19, 14, 28})   
        Output:  
            21,15,29   
 
-       Input:   
-       Solution.solution(3, {7, 3, 5, 1})    
+       Input:   Solution.solution(3, {7, 3, 5, 1})    
        Output:  
            -1,7,6,3  
 
 -- Python cases -- 
 
-       Input:   
-       solution.solution(3, [7, 3, 5, 1])  
+       Input:   solution.solution(3, [7, 3, 5, 1])  
        Output:   
            -1,7,6,3     
 
-       Input:     
-       solution.solution(5, [19, 14, 28])     
+       Input:     solution.solution(5, [19, 14, 28])     
        Output:     
            21,15,29    
