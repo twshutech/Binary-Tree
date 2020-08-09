@@ -13,8 +13,9 @@ Flux chains require perfect binary trees, so Lambda's design arranged the ion fl
     1 2 4 5     
 
 Write a function solution(h, q) 
-  - where h is the height of the perfect tree of converters and q is a list of positive integers representing different flux converters
-  - which returns a list of integers p where each element in p is the label of the converter that sits on top of the respective converter in q, or -1 if there is no such converter.  For example, solution(3, [1, 4, 7]) would return the converters above the converters at indexes 1, 4, and 7 in a perfect binary tree of height 3, which is [3, 6, -1].
+  - h is the height of the perfect tree of converters.   
+  - q is a list of positive integers representing different flux converters.   
+  - Function returns a list of integers p where each element in p is the label of the converter that sits on top of the respective converter in q, or -1 if there is no such converter.  For example, solution(3, [1, 4, 7]) would return the converters above the converters at indexes 1, 4, and 7 in a perfect binary tree of height 3, which is [3, 6, -1].
 
 The domain of the integer h is 1 <= h <= 30,   
 
