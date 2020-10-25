@@ -1,51 +1,55 @@
-# Binary-Tree
-fooBar challenge level 2(Binary-Tree) python version
+Numbers Station Coded Messages
+==============================
 
-Ion Flux Relabeling
-===================
+When you went undercover in Commander Lambda's organization, you set up a coded messaging system with Bunny Headquarters to allow them to send you important mission updates. Now that you're here and promoted to Henchman, you need to make sure you can receive those messages - but since you need to sneak them past Commander Lambda's spies, it won't be easy!
 
-Oh no! Commander Lambda's latest experiment to improve the efficiency of her LAMBCHOP doomsday device has backfired spectacularly. She had been improving the structure of the ion flux converter tree, but something went terribly wrong and the flux chains exploded. Some of the ion flux converters survived the explosion intact, but others had their position labels blasted off. She's having her henchmen rebuild the ion flux converter tree by hand, but you think you can do it much more quickly - quickly enough, perhaps, to earn a promotion!
+Bunny HQ has secretly taken control of two of the galaxy's more obscure numbers stations, and will use them to broadcast lists of numbers. They've given you a numerical key, and their messages will be encrypted within the first sequence of numbers that adds up to that key within any given list of numbers. 
 
-Flux chains require perfect binary trees, so Lambda's design arranged the ion flux converters to form one. To label them, she performed a post-order traversal of the tree of converters and labeled each converter with the order of that converter in the traversal, starting at 1. For example, a tree of 7 converters would look like the following:
+Given a non-empty list of positive integers l and a target positive integer t, write a function solution(l, t) which verifies if there is at least one consecutive sequence of positive integers within the list l (i.e. a contiguous sub-list) that can be summed up to the given target positive integer t (the key) and returns the lexicographically smallest list containing the smallest start and end indexes where this sequence can be found, or returns the array [-1, -1] in the case that there is no such sequence (to throw off Lambda's spies, not all number broadcasts will contain a coded message).
 
-       7   
-     3   6    
-    1 2 4 5     
+For example, given the broadcast list l as [4, 3, 5, 7, 8] and the key t as 12, the function solution(l, t) would return the list [0, 2] because the list l contains the sub-list [4, 3, 5] starting at index 0 and ending at index 2, for which 4 + 3 + 5 = 12, even though there is a shorter sequence that happens later in the list (5 + 7). On the other hand, given the list l as [1, 2, 3, 4] and the key t as 15, the function solution(l, t) would return [-1, -1] because there is no sub-list of list l that can be summed up to the given target value t = 15.
 
-Write a function solution(h, q) 
-  - h is the height of the perfect tree of converters.   
-  - q is a list of positive integers representing different flux converters.   
-  - Function returns a list of integers p where each element in p is the label of the converter that sits on top of the respective converter in q, or -1 if there is no such converter.  For example, solution(3, [1, 4, 7]) would return the converters above the converters at indexes 1, 4, and 7 in a perfect binary tree of height 3, which is [3, 6, -1].
+To help you identify the coded broadcasts, Bunny HQ has agreed to the following standards: 
 
-The domain of the integer h is 1 <= h <= 30,   
+- Each list l will contain at least 1 element but never more than 100.
+- Each element of l will be between 1 and 100.
+- t will be a positive integer, not exceeding 250.
+- The first element of the list l has index 0. 
+- For the list returned by solution(l, t), the start index must be equal or smaller than the end index. 
 
-    where h = 1 represents a perfect binary tree containing only the root,    
-    h = 2 represents a perfect binary tree with the root and two leaf nodes,   
-    h = 3 represents a perfect binary tree with the root, two internal nodes and four leaf nodes (like the example above), and so forth.   
-The lists q and p contain at least one but no more than 10000 distinct integers, all of which will be between 1 and 2^h-1, inclusive.
+Remember, to throw off Lambda's spies, Bunny HQ might include more than one contiguous sublist of a number broadcast that can be summed up to the key. You know that the message will always be hidden in the first sublist that sums up to the key, so solution(l, t) should only return that sublist.
 
+Languages
+=========
+
+To provide a Python solution, edit solution.py
+To provide a Java solution, edit Solution.java
 
 Test cases
 ==========
 Your code should pass the following test cases.
 Note that it may also be run against hidden test cases not shown here.
 
--- Java cases -- 
+-- Python cases --   
+Input:   
+solution.solution([1, 2, 3, 4], 15)  
+Output:    
+    -1,-1   
 
-       Input:   Solution.solution(5, {19, 14, 28})   
-       Output:  
-           21,15,29   
+Input:     
+solution.solution([4, 3, 10, 2, 8], 12)   
+Output:  
+    2,3    
 
-       Input:   Solution.solution(3, {7, 3, 5, 1})    
-       Output:  
-           -1,7,6,3  
+-- Java cases --     
+Input:    
+Solution.solution({1, 2, 3, 4}, 15)    
+Output:    
+    -1,-1    
 
--- Python cases -- 
+Input:    
+Solution.solution({4, 3, 10, 2, 8}, 12)    
+Output:    
+    2,3    
 
-       Input:   solution.solution(3, [7, 3, 5, 1])  
-       Output:   
-           -1,7,6,3     
-
-       Input:     solution.solution(5, [19, 14, 28])     
-       Output:     
-           21,15,29    
+Use verify [file] to test your solution and see how it does. When you are finished editing your code, use submit [file] to submit your answer. If your solution passes the test cases, it will be removed from your home folder.
