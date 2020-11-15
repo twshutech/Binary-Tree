@@ -1,7 +1,23 @@
-subtrahend = []
-minuend = []
-history = []
-cycle = []
+
+def countLooping(history):
+  cycle = []
+  c = 0
+  for item in history:
+    c = history.count(item)
+    if c > 1 and item not in cycle:
+      cycle.append(item)
+  return len(cycle)
+
+def borrow(minuend, r, s, base):
+  if r - s >= 0:
+    if minuend[r - s] - 1 < 0:
+      if s<len(minuend) and r>s:
+        minuend[r - s] = base - 1
+        s += 1
+        return borrow(minuend, r, s, base)
+    else:
+      minuend[r - s] -= 1
+      return minuend
 
 greater = lambda a,b: a>b
 subtraction = lambda a, b: a - b
@@ -11,6 +27,14 @@ appendInt = lambda a, b : b.append(int(a))
 appendStr = lambda a, b : b.append(str(a))
 
 def solution(n, base):
+  global subtrahend, minuend, history, cycle, subtraction, sortList
+  subtrahend = minuend = history = cycle = []
+
+  subtraction = lambda minuend, subtrahend: minuend-subtrahend
+  sortList = lambda arr, order: sorted(arr, reverse=order)
+  return(prepareVariable(n, base))
+
+def prepareVariable(n, base):
   k = len(n)
   arr = []
   for q in n:
@@ -20,6 +44,8 @@ def solution(n, base):
   minuend = ''.join(sortList(arr, True))# descending
 
   Subtractor(minuend, subtrahend, base, k)
+  if cycleChecking() == True:
+    return countLooping(history)
 
 def itemToInt(listN):
   newArr = []
@@ -51,7 +77,7 @@ def borrow(i, r, minuend, s):
 def Subtractor(minuend, subtrahend, base, k):
   minuend = itemToInt(minuend)
   subtrahend = itemToInt(subtrahend)
-  result = []
+  rawResult = []
   for i in range(k):
     d = 0
     r = k - i - 1
@@ -67,7 +93,7 @@ def Subtractor(minuend, subtrahend, base, k):
     appendInt(d, result)
   result = sortList(result, False)
 
-  newN = ''.join([str(elem) for elem in result]) 
+  newN = ''.join([str(elem) for elem in rawResult]) 
   history.append(newN)
   if cycleChecking() == False:
     solution(newN, 3)
