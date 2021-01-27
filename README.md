@@ -1,10 +1,4 @@
-# Google foobar challenge level 2
-
-Check out the following branches to see the tests.
-- Question 1
-  - fooBar-Q1L2
-  - foobar-q1l2-secoundTime
-- Question 2  
+# Elevator Maintenance
 
 You've been assigned the onerous task of elevator maintenance - ugh! It wouldn't be so bad, except that all the elevator documentation has been lying in a disorganized pile at the bottom of a filing cabinet for years, and you don't even know what elevator version numbers you'll be working on. 
 
